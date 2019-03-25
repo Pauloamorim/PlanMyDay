@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatGridTile, MatGridList, MatNativeDateModule, MatDatepickerModule, 
+import { MatGridListModule, MatNativeDateModule, MatDatepickerModule, 
          MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, 
          MatTableModule, MatCheckboxModule, MatTooltipModule } from '@angular/material'
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
@@ -20,9 +20,7 @@ import { TaskService } from '../app/service/task.service'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MatGridTile,
-    MatGridList
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +36,7 @@ import { TaskService } from '../app/service/task.service'
     MatTableModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatGridListModule,
     AngularFireModule.initializeApp(environment.config),
     AngularFireDatabaseModule
   ],
