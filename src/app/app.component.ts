@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker'
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Task } from './model/task';
 import { TaskService } from '../app/service/task.service'
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { TaskService } from '../app/service/task.service'
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
+  @ViewChild('swal') private swalDialog: SwalComponent;
   title = 'PlanMyDay';
   darkTheme: NgxMaterialTimepickerTheme = {
     container: {
@@ -69,6 +71,9 @@ export class AppComponent implements OnInit {
 
   checkSelection(task){
     task.done = !task.done;
+    if(task.done) {
+      this.swalDialog.show();
+    }
     this.taskService.updateTask(task);
   }
 
@@ -80,7 +85,7 @@ export class AppComponent implements OnInit {
     const current = new Date();
     let hour = current.getHours(), 
       minutes = current.getMinutes(),
-      result;
+      result = '';
 
     if(minutes <= 30){
       result = `${hour}:30` 

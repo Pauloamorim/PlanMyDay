@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatGridListModule, MatNativeDateModule, MatDatepickerModule, 
          MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, 
          MatTableModule, MatCheckboxModule, MatTooltipModule } from '@angular/material'
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { TaskService } from '../app/service/task.service'
     MatCheckboxModule,
     MatTooltipModule,
     MatGridListModule,
+    SweetAlert2Module.forRoot(),
     AngularFireModule.initializeApp(environment.config),
     AngularFireDatabaseModule
   ],
