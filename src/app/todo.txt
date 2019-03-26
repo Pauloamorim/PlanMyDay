@@ -1,30 +1,18 @@
-- create firebase                                                                                   - OK
-- get data from firebase                                                                            - OK
-- save in database                                                                                  - OK
-- remove in firebase                                                                                - OK
-- update when mark task as done                                                                     - OK
-- get data filtering current day                                                                    - OK
+------------------- layout -------------
 
-- Create a form with validations                                                                    - REALLY NECESSARY????
-- get next close hours from start time ( if it's 18:46 ... should be 19:00)                         - OK
-- get startDate and sum 30 minutes for endDate                                                      - OK
-- sort table by start date                                                                          - OK
-- add action to the button < and > (Action should be search for previous day or next day);          - OK
-- Show current date of search below buttons ( < >  )
-- fix title when mobile device
 - change style hours field
 - add loading in front of table
-- remove a bit of top space between table and icon to change table
 - add cool alert when task is done
+
+---------------------------------------
 
 - unit tests
 - integration tests
 - add tslint when build
-- deploy heroku
-
 
 --------- new features
 
 - add possibility of send notification saying that task is almost starting.
+- add color in table indicating next task 
 
 
