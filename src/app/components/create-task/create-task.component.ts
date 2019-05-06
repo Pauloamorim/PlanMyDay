@@ -63,7 +63,7 @@ export class CreateTaskComponent implements OnInit {
         result = `${hour}:00`;
       }
     }
-    this.task.startTime = result;
+    this.task.startTime = result; 
   }
   
   defineSugestionEndTime() {
