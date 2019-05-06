@@ -25,20 +25,31 @@ import { MenuComponent } from './components/menu/menu.component';
 import { TaskComponent } from './components/task/task.component'
 
 import { Routes, RouterModule } from '@angular/router';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 
 const routes: Routes = [
 	{
-	  path: '',
+		path: '',
+		redirectTo: 'task',
+		pathMatch: 'full'
+	},
+	{
+	  path: 'task',
 	  component: TaskComponent
-	}
+	},
+	{
+		path: 'task/create',
+		component: CreateTaskComponent
+	  },
   ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    TaskComponent
+    TaskComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
