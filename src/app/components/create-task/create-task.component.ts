@@ -60,7 +60,7 @@ export class CreateTaskComponent implements OnInit {
         result = '00:00' 
       }else{
         hour++;
-        result = `${hour}:00`; 
+        result = `${hour}:00`;
       }
     }
     this.task.startTime = result;
