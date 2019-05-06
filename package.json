@@ -28,6 +28,7 @@
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "firebase": "^5.9.0",
+    "husky": "^2.2.0",
     "moment": "^2.24.0",
     "ngx-material-timepicker": "^2.13.0",
     "path": "^0.12.7",
@@ -62,5 +63,10 @@
   "engines": {
     "node": "10.15.3",
     "npm": "6.9.0"
-  }
+  },
+  "husky": {
+	"hooks": {
+		"pre-commit": "ng lint"
+	}
+   }
 }
