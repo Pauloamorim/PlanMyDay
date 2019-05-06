@@ -10,6 +10,11 @@
     "e2e": "ng e2e",
 	"heroku-postbuild": "ng build --prod"
   },
+  "husky": {
+    "hooks": {
+		"pre-commit": "npm run lint && npm test"
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
@@ -63,10 +68,5 @@
   "engines": {
     "node": "10.15.3",
     "npm": "6.9.0"
-  },
-  "husky": {
-	"hooks": {
-	"pre-commit": "npm run lint && npm test"
-	}
-}
+  }
 }
