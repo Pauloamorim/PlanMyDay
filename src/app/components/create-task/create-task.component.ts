@@ -76,6 +76,7 @@ export class CreateTaskComponent implements OnInit {
   }
   functionToDelete(){
 	  //TODO remove this
+	  1
   }
 
 }
