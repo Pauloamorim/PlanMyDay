@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker'
+import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 import { Task } from '../../model/task';
-import { TaskService } from '../../service/task.service'
+import { TaskService } from '../../service/task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -25,9 +25,9 @@ export class CreateTaskComponent implements OnInit {
 	  };
 	  form = {
 		date: new Date(),
-		startTime: "17:00",
-		endTime: "18:00",
-		description: ""
+		startTime: '17:00',
+		endTime: '18:00',
+		description: ''
 	  };
 	  task: Task = new Task();
 
@@ -36,48 +36,48 @@ export class CreateTaskComponent implements OnInit {
 
   ngOnInit() {
 	this.defineSugestionStartTime();
-    this.defineSugestionEndTime();
+ this.defineSugestionEndTime();
   }
 
-  addTask(){
+  addTask() {
     this.task.done = false;
     this.taskService.createTask(this.task);
 
-    //clear form
+    // clear form
     this.task = new Task();
   }
 
-  defineSugestionStartTime(){
+  defineSugestionStartTime() {
     const current = new Date();
-    let hour = current.getHours(), 
+    let hour = current.getHours(),
       minutes = current.getMinutes(),
       result = '';
 
-    if(minutes <= 30){
-      result = `${hour}:30` 
-    }else{
-      if(hour == 23){
-        result = '00:00' 
-      }else{
+    if (minutes <= 30) {
+      result = `${hour}:30`;
+    } else {
+      if (hour == 23) {
+        result = '00:00';
+      } else {
         hour++;
         result = `${hour}:00`;
       }
     }
-    this.task.startTime = result; 
+    this.task.startTime = result;
   }
-  
+
   defineSugestionEndTime() {
     const current = new Date();
-    current.setHours(+this.task.startTime.substring(0,2));
-    current.setMinutes(+this.task.startTime.substring(3,5));
+    current.setHours(+this.task.startTime.substring(0, 2));
+    current.setMinutes(+this.task.startTime.substring(3, 5));
 
-    const result = new Date(current.getTime() + 30*60000);
+    const result = new Date(current.getTime() + 30 * 60000);
     this.task.endTime = `${result.getHours()}:${result.getMinutes()}`;
   }
-  functionToDelete(){
-	  //TODO remove this
-	  1
-	  2
+  functionToDelete() {
+	  // TODO remove this
+	  1;
+	  2;
   }
 
 }

@@ -10,24 +10,24 @@ export class TaskService {
   constructor(private firestore: AngularFirestore) { }
 
   getTasks(filterDate?: Date) {
-    if(!filterDate){
+    if (!filterDate) {
       filterDate = new Date();
     }
-    //remove hours to fiter timestamp in firebase
+    // remove hours to fiter timestamp in firebase
     filterDate.setHours(0, 0, 0, 0);
     return this.firestore.collection('tasks', ref => ref.where('date', '==', filterDate).orderBy('startTime', 'asc')).snapshotChanges();
   }
 
-  createTask(task: Task){
+  createTask(task: Task) {
     task.date.setHours(0, 0, 0, 0);
     return this.firestore.collection('tasks').add({...task});
   }
 
-  deleteTask(taskId: string){
+  deleteTask(taskId: string) {
     this.firestore.doc('tasks/' + taskId).delete();
   }
 
-  updateTask(task: Task){ 
+  updateTask(task: Task) {
     this.firestore.doc('tasks/' + task.id).update(task);
   }
 }

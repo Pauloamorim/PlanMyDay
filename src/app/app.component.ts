@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker'
+import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Task } from './model/task';
-import { TaskService } from '../app/service/task.service'
+import { TaskService } from '../app/service/task.service';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
@@ -30,9 +30,9 @@ export class AppComponent implements OnInit {
   };
   form = {
     date: new Date(),
-    startTime: "17:00",
-    endTime: "18:00",
-    description: ""
+    startTime: '17:00',
+    endTime: '18:00',
+    description: ''
   };
   displayedColumns: string[] = ['selection', 'task', 'start_time', 'end_time', 'remove_task'];
   dataSource = new MatTableDataSource<Task>();
@@ -41,82 +41,82 @@ export class AppComponent implements OnInit {
   task: Task = new Task();
   dateForFilter = new Date();
 
-  constructor(private taskService: TaskService){}
+  constructor(private taskService: TaskService) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.defineSugestionStartTime();
     this.defineSugestionEndTime();
     this.getTasks();
   }
 
-  getTasks(date?: Date){
+  getTasks(date?: Date) {
     this.taskService.getTasks(date).subscribe(data => {
       this.tasks = data.map(e => {
         return {
           id: e.payload.doc.id,
           ...e.payload.doc.data()
-        } as Task
+        } as Task;
       });
       this.dataSource.data = this.tasks;
     });
   }
 
-  addTask(){
+  addTask() {
     this.task.done = false;
     this.taskService.createTask(this.task);
 
-    //clear form
+    // clear form
     this.task = new Task();
   }
 
-  checkSelection(task){
+  checkSelection(task) {
     task.done = !task.done;
-    if(task.done) {
+    if (task.done) {
       this.swalDialog.show();
     }
     this.taskService.updateTask(task);
   }
 
-  removeTask(id){
+  removeTask(id) {
     this.taskService.deleteTask(id);
   }
 
-  defineSugestionStartTime(){
+  defineSugestionStartTime() {
     const current = new Date();
-    let hour = current.getHours(), 
+    let hour = current.getHours(),
       minutes = current.getMinutes(),
       result = '';
 
-    if(minutes <= 30){
-      result = `${hour}:30` 
-    }else{
-      if(hour == 23){
-        result = '00:00'
-      }else{
+    if (minutes <= 30) {
+      result = `${hour}:30`;
+    } else {
+      if (hour == 23) {
+        result = '00:00';
+      } else {
         hour++;
         result = `${hour}:00`;
       }
     }
     this.task.startTime = result;
   }
-  
+
   defineSugestionEndTime() {
     const current = new Date();
-    current.setHours(+this.task.startTime.substring(0,2));
-    current.setMinutes(+this.task.startTime.substring(3,5));
+    current.setHours(+this.task.startTime.substring(0, 2));
+    current.setMinutes(+this.task.startTime.substring(3, 5));
 
-    const result = new Date(current.getTime() + 30*60000);
+    const result = new Date(current.getTime() + 30 * 60000);
     this.task.endTime = `${result.getHours()}:${result.getMinutes()}`;
   }
 
   searchPreviousDay() {
-    this.dateForFilter.setDate(this.dateForFilter.getDate()-1);
+    this.dateForFilter.setDate(this.dateForFilter.getDate() - 1);
 
     this.getTasks(this.dateForFilter);
-  }  
-  
+  }
+
   searchNextDay() {
-    this.dateForFilter.setDate(this.dateForFilter.getDate()+1);
+    this.dateForFilter.setDate(this.dateForFilter.getDate() + 1);
 
     this.getTasks(this.dateForFilter);
   }
