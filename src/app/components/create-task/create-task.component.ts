@@ -57,7 +57,7 @@ export class CreateTaskComponent implements OnInit {
       result = `${hour}:30` 
     }else{
       if(hour == 23){
-        result = '00:00'
+        result = '00:00' 
       }else{
         hour++;
         result = `${hour}:00`;
