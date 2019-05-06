@@ -74,5 +74,8 @@ export class CreateTaskComponent implements OnInit {
     const result = new Date(current.getTime() + 30*60000);
     this.task.endTime = `${result.getHours()}:${result.getMinutes()}`;
   }
+  functionToDelete(){
+	  //TODO remove this
+  }
 
 }
