@@ -1,0 +1,26 @@
+<div class="example-container">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="task.date" class="date-picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Start time" [ngxTimepicker]="toggleTimepicker" readonly class="time-picker" [format]="24" [(ngModel)]="task.startTime">
+    <ngx-material-timepicker #darkPicker [ngxMaterialTimepickerTheme]="darkTheme" #toggleTimepicker></ngx-material-timepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="End time" [ngxTimepicker]="toggleTimepicker2" [disableClick]="true" readonly class="time-picker" [format]="24" [(ngModel)]="task.endTime">
+    <ngx-material-timepicker #darkPicker #toggleTimepicker2 [ngxMaterialTimepickerTheme]="darkTheme"></ngx-material-timepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Type your task here" cols="500" rows="3" [(ngModel)]="task.name"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addTask()">Create Task</button>
+  <div class="clearfix" style="margin-top: 10px"></div>
+  <button mat-raised-button routerLink="/task">Go back Tasks</button>
+
+</div>
