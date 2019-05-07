@@ -6,10 +6,10 @@ import { TaskService } from '../../service/task.service';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
-	selector: 'app-task',
-	templateUrl: './task.component.html',
-	styleUrls: ['./task.component.less']
-  })
+ selector: 'app-task',
+ templateUrl: './task.component.html',
+ styleUrls: ['./task.component.less']
+})
   export class TaskComponent implements OnInit {
 
   @ViewChild('swal') private swalDialog: SwalComponent;

@@ -8,11 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-	"heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "husky": {
     "hooks": {
-		"pre-commit": "npm run lint && npm test"
+      "pre-commit": "npm run lint"
     }
   },
   "private": true,

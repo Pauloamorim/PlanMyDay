@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatGridListModule, MatNativeDateModule, MatDatepickerModule,
-         MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule,
-		 MatTableModule, MatCheckboxModule, MatTooltipModule, MatSidenavModule,
-		 MatToolbarModule, MatListModule } from '@angular/material';
+          MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule,
+          MatTableModule, MatCheckboxModule, MatTooltipModule, MatSidenavModule,
+          MatToolbarModule, MatListModule } from '@angular/material';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
@@ -29,20 +29,20 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 
 
 const routes: Routes = [
-	{
-		path: '',
-		redirectTo: 'task',
-		pathMatch: 'full'
-	},
-	{
-	  path: 'task',
-	  component: TaskComponent
-	},
-	{
-		path: 'task/create',
-		component: CreateTaskComponent
-	  },
-  ];
+  {
+    path: '',
+    redirectTo: 'task',
+    pathMatch: 'full'
+  },
+  {
+    path: 'task',
+    component: TaskComponent
+  },
+  {
+    path: 'task/create',
+    component: CreateTaskComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -65,14 +65,14 @@ const routes: Routes = [
     MatTableModule,
     MatCheckboxModule,
     MatTooltipModule,
-	MatGridListModule,
-	MatSidenavModule,
-	MatToolbarModule,
-	MatListModule,
-	FlexLayoutModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    FlexLayoutModule,
     SweetAlert2Module.forRoot(),
-	AngularFireModule.initializeApp(environment.config),
-	RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(environment.config),
+    RouterModule.forRoot(routes),
     AngularFireDatabaseModule
   ],
   providers: [
