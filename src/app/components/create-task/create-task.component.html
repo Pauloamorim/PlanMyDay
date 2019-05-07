@@ -11,7 +11,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="End time" [ngxTimepicker]="toggleTimepicker2" [disableClick]="true" readonly class="time-picker" [format]="24" [(ngModel)]="task.endTime">
+    <input matInput placeholder="End time" [ngxTimepicker]="toggleTimepicker2" readonly class="time-picker" [format]="24" [(ngModel)]="task.endTime">
     <ngx-material-timepicker #darkPicker #toggleTimepicker2 [ngxMaterialTimepickerTheme]="darkTheme"></ngx-material-timepicker>
   </mat-form-field>
 
