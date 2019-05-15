@@ -2,7 +2,6 @@
 
 - change style hours field
 - add loading in front of table
-- add cool alert when task is done
 
 ---------------------------------------
 

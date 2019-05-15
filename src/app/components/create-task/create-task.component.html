@@ -19,6 +19,8 @@
     <textarea matInput placeholder="Type your task here" cols="500" rows="3" [(ngModel)]="task.name"></textarea>
   </mat-form-field>
 
+  <mat-checkbox [(ngModel)]="addMore" class="has-more">Create another</mat-checkbox>
+
   <button mat-raised-button color="primary" (click)="addTask()">Create Task</button>
   <div class="clearfix" style="margin-top: 10px"></div>
   <button mat-raised-button routerLink="/task">Go back Tasks</button>
