@@ -31,6 +31,7 @@ export class CreateTaskComponent implements OnInit {
      description: ''
    };
    task: Task = new Task();
+   addMore: boolean = false;
 
   constructor(private taskService: TaskService, private router: Router) { }
 
@@ -43,8 +44,10 @@ export class CreateTaskComponent implements OnInit {
     this.task.done = false;
     this.taskService.createTask(this.task);
 
-    this.task = new Task();
-    this.router.navigateByUrl('/task');
+	this.task = new Task();
+	if (!this.addMore) {
+		this.router.navigateByUrl('/task');
+	}
   }
 
   defineSugestionStartTime() {
