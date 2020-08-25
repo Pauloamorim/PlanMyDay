@@ -58,6 +58,12 @@ import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
     this.getTasks(this.dateForFilter);
   }
 
+  displayDate() {
+	const dateTimeFormat = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' });
+	const [{ value: month },, { value: day },, { value: year }] = dateTimeFormat .formatToParts(this.dateForFilter);
+	return `${day}/${month}/${year}`;
+  }
+
   searchNextDay() {
     this.dateForFilter.setDate(this.dateForFilter.getDate() + 1);
 
